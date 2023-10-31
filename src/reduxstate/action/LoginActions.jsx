@@ -14,7 +14,6 @@ export const LoginRequest=(user)=>{
                               })
                               if(!response.statusText==='OK'){
                                 alert("Invalid Credentials.. Login Failed")
-                                  // throw new Error("Authentication failed")
                               }
                               else{
                                 

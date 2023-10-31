@@ -1,6 +1,6 @@
   import React,{useState,useEffect} from 'react'
   import delete_icon from '../../assets/delete_icon.png'
-  import { useDispatch ,useSelector} from 'react-redux';  
+  import { useDispatch} from 'react-redux';  
    import { addToCartRequest ,deleteCartItemRequest} from '../../reduxstate/action/CartActions'
 
 
@@ -50,26 +50,26 @@
          
   const handleDeleteCartItem=(e)=>{
     e.preventDefault();
-    alert("inside deletecart item")
+    confirm("Do you want to remove this Item?")
       dispatch(deleteCartItemRequest(cartId))
   }
 
 
    
   return (
-    <div className=' w-screen h-fit md:w-full md:h-32 bg-white  space-x-0 shadow-lg md:shadow-xl  flex flex-row md:space-x-2 '> 
+    <div className=' w-screen h-fit md:w-full md:h-32 bg-white shadow-lg md:shadow-xl  flex flex-row md:space-x-2 '> 
       <div className='h-fit w-10  mt-2 ml-0  md:h-fit md:w-14 md:m-4'><img src={image} alt="productimage"/></div>
       <div className='w-28 text-xs  mt-2 ml-1  md:text-md md:m-4 md:h-fit'>{title}</div>
-      <div className='w-14  mt-5 ml-1 md:m-10 h-fit'>{size}</div>
-      <div  className='w-14   mt-5 ml-1 md:m-10 h-fit'>{quantity}</div>
-      <div  className='w-14 mt-5 ml-1 md:m-10 h-fit'>{price}</div>
-      <div  className='w-14  mt-5 ml-1 md:m-10 h-fit'>{totalPrice}</div>
-      <div className='flex flex-row mt-6'>
-          <button type='click' className='w-5 h-5 mt-2 bg-gray-600 text-white  md:mt-5 cursor-pointer hover:bg-slate-300' onClick={handleDecrementQuantity} >-</button>
-          <button  type='click' className='w-5 h-5 mt-2 bg-white text-gray-600  md:mt-5 cursor-pointer hover:bg-slate-300' value={quantityState} >{quantityState}</button>
-          <button type='click' className='w-5 h-5 mt-2 bg-gray-600 text-white md:mt-5 cursor-pointer hover:bg-slate-300' onClick={handleIncrementQuantity}>+</button>          
+      <div className='w-14  mt-5 ml-0 md:m-10 h-fit'>{size}</div>
+      <div  className='w-14   mt-5 ml-0 md:m-10 h-fit'>{quantity}</div>
+      <div  className='w-14 mt-5 ml-0 md:m-10 h-fit'>{price}</div>
+      <div  className='w-14  mt-5 ml-0 md:m-10 h-fit'>{totalPrice}</div>
+      <div className='flex  flex-col ml-0 md:flex-row mt-1 md:mt-6'>
+          <button type='click' className='w-5 h-5 m-0 bg-gray-600 text-white  md:mt-5 cursor-pointer hover:bg-slate-300' onClick={handleDecrementQuantity} >-</button>
+          <button  type='click' className='w-5 h-5 m-0  bg-white text-gray-600  md:mt-5 cursor-pointer hover:bg-slate-300' value={quantityState} >{quantityState}</button>
+          <button type='click' className='w-5 h-5 m-0 bg-gray-600 text-white md:mt-5 cursor-pointer hover:bg-slate-300' onClick={handleIncrementQuantity}>+</button>          
       </div>
-      <div className='w-6 ml-6 mt-7 md:mt-10 h-8 rounded-xl bg-slate-100 shadow-xl space-x-1 md:ml-3  hover:bg-slate-300 ' onClick={handleDeleteCartItem}>
+      <div className='w-6 ml-6 mt-7 md:mt-10 h-8  bg-slate-100 shadow-xl space-x-1 md:ml-3  hover:bg-slate-300 ' onClick={handleDeleteCartItem}>
         <img src={delete_icon} alt='deleteicon' className=' w-5 h-7 cursor-pointer hover:transform' />
         </div>
 

@@ -2,21 +2,22 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import CartDetails from './CartDetails'
 import rupee_icon from '../../assets/Ecommerce_Frontend_Assets/rupee_icon.png'
-import { useParams,useNavigate} from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
 
 const CartItem = () => {
   const navigate=useNavigate();
+  const islogin= useSelector((state)=>state.autherization.isAuthenticated)
 
   const cartitems=useSelector((state)=>state.cartitems.cartItems)
   const totalQuantity=useSelector((state)=>state.cartitems.totalQuantity)
   const totalAmount=useSelector((state)=>state.cartitems.totalAmount)
   const isEmpty= cartitems.length === 0 ? true :false;
   const handleContinueShopping=()=>{
-    navigate('/shop')
+    navigate('/')
 
 }
   return (
-    <div className='w-full h-[100vh]'>
+    <div className='w-full min-h-[100vh]'>
 
     <div className='
     w-screen ml-0 space-y-1
@@ -25,19 +26,19 @@ const CartItem = () => {
     md:space-y-2'>
        
        {isEmpty && ( <>
-           <div className='h-10 bg-white text-gray-500 text-xl text-center border-2 m-20 border-gray-600'>Your Cart is Empty</div>
-            <button type='click' onClick={handleContinueShopping} className='border-0  text-green-600 text-sm md:text-lg font-semibold ml-32 py-10 underline  hover:text-green-400'>
+           <div className='h-auto md:w-auto md:h-10 bg-white text-gray-500  text-sm md:text-xl text-center m-20 border-gray-600'>Your Cart is Empty</div>
+            <button type='click' onClick={handleContinueShopping} className='border-0  text-green-600 text-sm md:text-lg font-semibold top:0 underline  hover:text-green-400'>
                Start Shopping
              </button>
              </>)}
             
-       {!isEmpty && (
+       {(!isEmpty && islogin) && (
        <>
       
        <div className='h-10 bg-white text-gray-500 text-lg  md:text-xl text-center border-b-2 border-gray-600'>Shopping Bag
        </div>   
            {cartitems.map((item)=>(
-            <CartDetails item={item}/>
+            <CartDetails key={item.cartId} item={item}/>
            ))}    
     
     <div className='flex flex-row justify-around h-10 bg-white text-green-700 text-xl '> 

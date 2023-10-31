@@ -7,7 +7,6 @@ export const  addToCartRequest=(newCartItem)=>{
         const addCart=async()=>{
             const email=localStorage.getItem('email')
             const encodedEmail = btoa(email);
-            console.log(newCartItem)
             const url=`https://apicallsproject-7e177-default-rtdb.firebaseio.com/EwebCartDetails/${encodedEmail}.json`;
              
                 const response= await axios.post(url,newCartItem)
@@ -56,14 +55,12 @@ export const deleteCartItemRequest=(cartIdToDelete)=>{
         
             try {
                 const response = await axios.get(`${url}.json`);
-                console.log("responsedata",response.data);
                 if (response.data) {
                     const userCart = response.data;
                     for (const key in userCart) {
                         if (userCart[key].cartId === cartIdToDelete) {
                             const itemToDeleteUrl = `${url}/${key}.json`;
                          const deleteResponse=    await axios.delete(itemToDeleteUrl);
-                         console.log('Data deleted successfully');
                          return deleteResponse;
                           
                     }
@@ -119,16 +116,16 @@ export const deleteCartItemRequest=(cartIdToDelete)=>{
                 try{
                    const usercartdata=  await loadCart();   
                    const cartItems=[] ;
-                   for (const key in userCart) {
+                   for (const key in usercartdata) {
                     const newItem={
                         cartId:usercartdata[key].cartId,
                         id:usercartdata[key].id,
                         image:usercartdata[key].image,
-                        name:usercartdata[key].name,
+                        title:usercartdata[key].name,
                         size:usercartdata[key].size,
                         quantity:usercartdata[key].quantity,
                         price:usercartdata[key].price,
-                        totalPrice:usercartdata[key]
+                        totalPrice:usercartdata[key].totalPrice
                    }     
                    cartItems.push(newItem) 
 

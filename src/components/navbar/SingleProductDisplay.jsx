@@ -21,8 +21,7 @@ const SingleProductDisplay = () => {
     const [selectQuantity,setSelectQuantity]=useState(0);
     const [quantityMessage,setQuantityMessage]=useState('');
     const [sizeMessage,setSizeMessage]=useState('')
-    const [openModal,setOpenModal]=useState(false)
-    const [open,setOpen]=useState(false)
+   
 
 
     const data = productdata.filter((item)=> item.id == productid)
@@ -116,7 +115,7 @@ const SingleProductDisplay = () => {
 
 
     const handleContinueShopping=()=>{
-        navigate('/shop')
+        navigate('/')
 
     }
     const handleGotoCart=()=>{

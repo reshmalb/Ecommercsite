@@ -1,14 +1,9 @@
 import React from 'react'
-import product_image from '../../assets/Ecommerce_Frontend_Assets/product_36.png'
 import {useNavigate,useParams} from 'react-router-dom'
-import { useSelector } from 'react-redux'
 
 const ProductCard = ({id,image,name,newprice,oldprice}) => {
 
   const navigate=useNavigate();
-
-
-
   const handleAddToCart=()=>{
     navigate(`/singleproduct/${id}`)
     

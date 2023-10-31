@@ -9,9 +9,8 @@ import {Link} from 'react-router-dom'
 
 const Navbar = () => {
 
-  const islogin= useSelector((state)=>state.autherization.isAuthenticated)
-  const totalQuantity=useSelector((state)=>state.cartitems.totalQuantity)
-
+  const islogin= useSelector((state)=>state.autherization.isAuthenticated);
+  const totalQuantity=useSelector((state)=>state.cartitems.totalQuantity);
   const dispatch=useDispatch();
 
   const [isHamClick,setHamClick]=useState(false)
@@ -28,8 +27,7 @@ const Navbar = () => {
        bg-sky-700
        opacity-90
        py-2
-       px-2
-       
+       px-2       
        md:py-0
        md:opacity:100
        md:h-auto
@@ -42,10 +40,10 @@ const Navbar = () => {
         py-4 px-2
         cursor-pointer
          md:hidden ${isHamClick === true ? 'hidden':''}`
-    const closeiconClass=`closeicon w-8 h-10 mt-3 cursor-pointer md:hidden ${isHamClick ===false? 'hidden':''}`
-  const hamburgerCilcked=()=>{
-    setHamClick((prev)=>!prev)
-  }
+         const closeiconClass=`closeicon w-8 h-10 mt-3 cursor-pointer md:hidden ${isHamClick ===false? 'hidden':''}`
+        const hamburgerCilcked=()=>{
+          setHamClick((prev)=>!prev)
+        }
 
 
   const logoutHandler=()=>{
@@ -78,7 +76,7 @@ const Navbar = () => {
      </div>
      <div className={categoryClasses}>
 
-            <div className='cursor-pointer hover:underline active:underline-offset-2 hover:underline-offset-8'><Link className='decoration-0' to="/shop">Shop </Link></div>
+            <div className='cursor-pointer hover:underline active:underline-offset-2 hover:underline-offset-8'><Link className='decoration-0' to="/">Shop </Link></div>
             <div className='cursor-pointer hover:underline hover:underline-offset-8'><Link className='decoration-0' to="/men">Mens </Link></div>
             <div className='cursor-pointer hover:underline hover:underline-offset-8'><Link className='decoration-0' to="/women">Womens </Link></div>
             <div className='cursor-pointer hover:underline  hover:underline-offset-8'><Link className='decoration-0' to="/kid">Kids</Link></div>

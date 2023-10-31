@@ -6,7 +6,6 @@ const NewCollections = ({image,name,newprice,oldprice,category}) => {
     const navigate=useNavigate()
     
   const handleAddToCart=(category)=>{
-    const userlogin= localStorage.getItem('login')
   
     if(category==='women'){
         navigate('/women')

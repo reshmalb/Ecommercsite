@@ -1,5 +1,4 @@
 import React from 'react'
-import ProductCard from './Product'
 import Slider from './Slider'
 import all_product from '../../assets/Ecommerce_Frontend_Assets/all_product'
 import newCollections from '../../assets/Ecommerce_Frontend_Assets/new_collections'
@@ -11,12 +10,10 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
 
-import { EffectCoverflow, Pagination } from 'swiper/modules';
+import {Pagination } from 'swiper/modules';
 import NewCollections from './NewCollections'
 import { useEffect } from 'react'
 import { loadCartData } from '../../reduxstate/action/CartActions'
-let initialLoad=true;
-
 
 const Products = () => {
   const islogin=useSelector((state)=>state.autherization.isAuthenticated)
@@ -29,12 +26,12 @@ const Products = () => {
   const kid= all_product.filter((product)=>product.category==='kid')
 
   useEffect(()=>{
-      if(islogin && initialLoad){
-        dispatch(loadCartData());
-        initialLoad=false;
-        }
+          if(islogin)
+                {dispatch(loadCartData());
+                }
+      
 
-  },[]);
+  },[islogin]);
 
 
   return (

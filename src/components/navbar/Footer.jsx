@@ -16,7 +16,7 @@ const Footer = () => {
         </div>
         <div className='flex justify-center text-sm'>
         Copyright
-        <img src={copyright} alt="socialIcons"   className='w-5 h-5 ml-3'/> :Designed by Reshma.
+        <img src={copyright} alt="socialIcons"   className='w-5 h-5 ml-3'/> :All Rights Reserved.
 
 
         </div>

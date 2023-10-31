@@ -16,8 +16,8 @@ const Login = () => {
 
   const [isLogin,setLogin]=useState(islogin)
 
-  const title = isLogin === true ? 'Login' :'Create Account';
-  const buttonTitle= isLogin === true ? 'Login' :'Signup';
+  const title = isLogin === true ? 'Create Account':'Login' ;
+  const buttonTitle= isLogin === true ? 'Signup' :'Login';
   const reference= isLogin === true ? 'Create new Account': 'To Login';
 
   const handleReferenceClick=()=>{
@@ -43,7 +43,7 @@ const handleAccount=( )=>{
        }
      dispatch(LoginRequest(user));
     //  if(islogin){
-      navigate('/shop')
+      navigate('/')
    
     //  }
 
